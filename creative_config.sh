@@ -19,7 +19,7 @@ AUTO_CLONE=false
 
 # 創作ルールリポジトリ
 RULE_REPOS=(
-  "https://github.com/miyatti777/character_novel_v0.git|.cursor/rules/basic"
+  "https://github.com/miyatti777/creative_rules_basic.git|.cursor/rules/creative"
 )
 
 # 創作支援スクリプトリポジトリ（現在は不要）
