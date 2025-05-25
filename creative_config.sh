@@ -1,36 +1,38 @@
 #!/bin/bash
 #============================================================
-# creative_config.sh
-# ─ キャラクター小説創作ワークスペース設定ファイル
-#
-# このファイルは setup_creative_workspace.sh で読み込まれ、
-# デフォルト設定をオーバーライドします
+# creative_config.sh - キャラクター小説創作環境設定ファイル
 #============================================================
+
+# ----
+# 基本設定
+# ----
+
+# 自動承認（true: 確認メッセージをスキップ、false: 確認する）
+AUTO_APPROVE=false
+
+# 自動クローン（true: リポジトリを自動クローン、false: 確認する）
+AUTO_CLONE=false
+
+# ----
+# リポジトリ設定
+# ----
 
 # 創作ルールリポジトリ
 RULE_REPOS=(
   "https://github.com/miyatti777/creative_rules_basic.git|.cursor/rules/basic"
-  # 追加のルールリポジトリがあればここに記述
 )
 
-# 創作支援スクリプトリポジトリ
-SCRIPT_REPOS=(
-  "https://github.com/miyatti777/creative_scripts.git|scripts"
-  # 追加のスクリプトリポジトリがあればここに記述
-)
+# 創作支援スクリプトリポジトリ（現在は不要）
+SCRIPT_REPOS=()
 
-# 創作テンプレートリポジトリ
-TEMPLATE_REPOS=(
-  "https://github.com/miyatti777/creative_templates.git|Flow/templates"
-  # 追加のテンプレートリポジトリがあればここに記述
-)
+# 創作テンプレートリポジトリ（現在は不要、ルールリポジトリに含まれる）
+TEMPLATE_REPOS=()
 
-# 創作コミュニティリポジトリ（オプション）
-COMMUNITY_REPOS=(
-  # "https://github.com/your-org/creative_community.git|Stock/community"
-)
+# ----
+# ディレクトリ設定
+# ----
 
-# 基本ディレクトリ（必要に応じて追加・変更）
+# 基本ディレクトリ構造
 BASE_DIRS=(
   "Flow"
   "Flow/templates"
@@ -54,25 +56,88 @@ BASE_DIRS=(
   ".cursor/rules"
   ".cursor/rules/basic"
   "config"
-  # 追加のディレクトリがあればここに記述
 )
 
-# 自動承認設定
-# true: 確認メッセージをスキップ
-# false: 各ステップで確認を求める
-AUTO_APPROVE=false
+# ----
+# 創作者設定（オプション）
+# ----
 
-# 自動クローン設定
-# true: リポジトリを自動的にクローン
-# false: クローンするかどうか確認を求める
-AUTO_CLONE=false
+# 創作者名（空の場合は設定ファイルで後から設定）
+CREATOR_NAME=""
 
-# 創作者情報（オプション）
-# セットアップ時に自動的に設定ファイルに反映されます
-CREATOR_NAME="あなたの創作者名"
-CREATOR_PEN_NAMES=("ペンネーム1" "ペンネーム2")
-CREATOR_GENRES=("夢小説" "オリジナル小説" "ファンタジー")
-CREATOR_FAVORITE_CHARACTERS=("推しキャラ1" "推しキャラ2")
+# デフォルトの創作タイプ（dream_novel / original_novel）
+DEFAULT_WORK_TYPE="dream_novel"
+
+# 好きなジャンル（カンマ区切り）
+FAVORITE_GENRES="夢小説,オリジナル小説,ファンタジー"
+
+# ----
+# AI設定
+# ----
+
+# 使用するAIモデル（claude / gpt / gemini）
+AI_MODEL_PREFERENCE="claude"
+
+# 創作性レベル（conservative / balanced / creative）
+CREATIVITY_LEVEL="balanced"
+
+# 言語スタイル（formal / natural / casual）
+LANGUAGE_STYLE="natural"
+
+# ----
+# 高度な設定
+# ----
+
+# バックアップの自動作成
+AUTO_BACKUP=true
+
+# 品質チェックの有効化
+QUALITY_CHECK=true
+
+# デバッグモード
+DEBUG_MODE=false
+
+# ----
+# カスタムディレクトリ（必要に応じて追加）
+# ----
+
+# 追加で作成したいディレクトリがあれば以下に追加
+CUSTOM_DIRS=(
+  # "Stock/custom_folder"
+  # "Flow/special_templates"
+)
+
+# ----
+# カスタムリポジトリ（必要に応じて追加）
+# ----
+
+# 個人用のカスタムリポジトリがあれば以下に追加
+CUSTOM_REPOS=(
+  # "https://github.com/username/my_custom_rules.git|.cursor/rules/custom"
+  # "https://github.com/username/my_templates.git|Flow/custom_templates"
+)
+
+# ----
+# 環境固有設定
+# ----
+
+# 作業環境（development / production）
+ENVIRONMENT="development"
+
+# ログレベル（debug / info / warning / error）
+LOG_LEVEL="info"
+
+# ----
+# 注意事項
+# ----
+# - このファイルは setup_creative_workspace.sh によって読み込まれます
+# - 設定を変更した場合は、セットアップスクリプトを再実行してください
+# - 個人情報を含む設定は .gitignore に追加することをお勧めします
+
+# 創作コミュニティリポジトリ（オプション）
+COMMUNITY_REPOS=(
+  # "https://github.com/your-org/creative_community.git|Stock/community"
+)
 
 # デフォルト創作設定
 DEFAULT_WORK_TYPE="dream_novel"  # dream_novel / original_novel

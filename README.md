@@ -139,18 +139,66 @@ Cursorの新規ウィンドウから簡単にセットアップできます：
 
 ### 手動セットアップ
 
-#### 基本環境構築
+#### セットアップスクリプトの実行
 
 ```bash
-# 1. 基本ディレクトリ構造の作成
+# 基本的な使用方法
 ./setup_creative_workspace.sh
 
-# 2. 創作ルールの初期化
-./init_creative_rules.sh
+# 設定ファイルを指定する場合
+./setup_creative_workspace.sh creative_config.sh
 
-# 3. テンプレートの準備
-./prepare_templates.sh
+# 特定のディレクトリに作成する場合
+./setup_creative_workspace.sh /path/to/workspace
+
+# ディレクトリと設定ファイルの両方を指定する場合
+./setup_creative_workspace.sh /path/to/workspace creative_config.sh
 ```
+
+#### セットアップスクリプトの主な機能
+
+`setup_creative_workspace.sh` スクリプトを使用すると、以下の作業が自動的に行われます：
+
+1. **基本ディレクトリ構造の作成**
+   - Flow, Stock, Archived などの基本フォルダ
+   - ルールファイル用の .cursor/rules フォルダ
+   - 創作作品用フォルダ Stock/creative_works
+
+2. **Flow内の年月日フォルダ作成**
+   - 現在の日付で Flow/YYYYMM/YYYY-MM-DD 形式のフォルダ作成
+
+3. **各種リポジトリのクローン**
+   - 創作ルールリポジトリ（.cursor/rules/basic）
+   - 必要に応じてスクリプトやテンプレートリポジトリ
+
+4. **設定ファイルの作成**
+   - 創作者設定ファイル（config/creator_config.yaml）
+   - .gitignore ファイル
+
+5. **サンプルファイルの作成**
+   - キャラクター分析サンプル
+   - Flow ディレクトリ用 README
+
+#### 設定ファイルについて
+
+`creative_config.sh` ファイルを使用することで、セットアップをカスタマイズできます：
+
+```bash
+# 設定ファイルをコピーして編集
+cp creative_config.sh my_config.sh
+# my_config.sh を編集して個人設定を調整
+
+# カスタム設定でセットアップ実行
+./setup_creative_workspace.sh ~/my_workspace my_config.sh
+```
+
+主な設定項目：
+- **AUTO_APPROVE**: 確認メッセージのスキップ
+- **AUTO_CLONE**: リポジトリの自動クローン
+- **CREATOR_NAME**: 創作者名の事前設定
+- **AI_MODEL_PREFERENCE**: 使用するAIモデル
+- **CUSTOM_DIRS**: 追加ディレクトリ
+- **CUSTOM_REPOS**: 個人用リポジトリ
 
 ### 初期設定
 

@@ -8,11 +8,30 @@
 # 1. このディレクトリに移動
 cd /Users/daisukemiyata/aipm_v3/Stock/programs/EXPLAZA/projects/aipm_saas/dev/character_novel_v0
 
-# 2. 創作ワークスペースを作成
+# 2. 創作ワークスペースを作成（基本）
 ./setup_creative_workspace.sh ~/my_creative_workspace
+
+# または、設定ファイルを使用する場合
+./setup_creative_workspace.sh ~/my_creative_workspace creative_config.sh
 
 # 3. 作成されたワークスペースに移動
 cd ~/my_creative_workspace
+```
+
+#### セットアップスクリプトの実行オプション
+
+```bash
+# カレントディレクトリに作成
+./setup_creative_workspace.sh
+
+# 設定ファイルのみ指定（カレントディレクトリに作成）
+./setup_creative_workspace.sh creative_config.sh
+
+# 特定のディレクトリに作成
+./setup_creative_workspace.sh /path/to/workspace
+
+# ディレクトリと設定ファイルの両方を指定
+./setup_creative_workspace.sh /path/to/workspace creative_config.sh
 ```
 
 ### 2. Cursorで開く（1分）
