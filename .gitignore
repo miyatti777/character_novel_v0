@@ -1,0 +1,95 @@
+# 個人情報・設定
+config/creator_config.yaml
+config/personal_*.yaml
+config/private_*.yaml
+
+# 一時ファイル
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# ログファイル
+*.log
+logs/
+debug/
+
+# バックアップファイル
+*_backup_*
+*.bak
+*~
+
+# 作業中ファイル
+*_draft_*
+*_wip_*
+*_temp_*
+
+# システムファイル
+.cursor/
+!.cursor/rules/
+
+# IDE・エディタ設定
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS固有ファイル
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 創作関連の除外
+# 個人的な創作メモ
+Flow/*/personal_*
+Flow/*/private_*
+
+# 未完成作品（必要に応じてコメントアウト）
+# *_incomplete_*
+# *_unfinished_*
+
+# 大容量ファイル
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.mp3
+*.wav
+*.flac
+
+# 圧縮ファイル
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# キャッシュファイル
+cache/
+.cache/
+node_modules/
+__pycache__/
+*.pyc
+
+# 環境設定
+.env
+.env.local
+.env.production
+
+# 依存関係
+package-lock.json
+yarn.lock
+Pipfile.lock
+
+# ビルド成果物
+dist/
+build/
+out/
+
+# 創作コミュニティ関連
+# 他者の作品（共有されたもの以外）
+Stock/community/private_*
+Stock/community/personal_*
+
+# フィードバック・レビュー（個人情報含む可能性）
+Stock/community/feedback/private_*
+Stock/community/feedback/personal_* 
